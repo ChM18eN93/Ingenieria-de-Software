@@ -1,5 +1,5 @@
 diccionario = {
-    'programar': 'signofica convertir algo a código',
+    'programar': 'significa convertir algo a código',
     'POO': 'Programación Orientada a Objeto',
     'MVC': 'Modelo Vista Controlador',
     'Caos': 'Desorden',
