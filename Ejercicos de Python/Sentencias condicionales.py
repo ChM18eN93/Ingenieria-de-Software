@@ -1,6 +1,6 @@
 # Sentencias condicionales
 
-temp = 36
+temp = 15
 
 if temp == 25:
     print("Está templado")
