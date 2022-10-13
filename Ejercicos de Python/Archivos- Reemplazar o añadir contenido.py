@@ -14,6 +14,8 @@ with open("frases_famosas.txt", "w") as archivo:
     for nombre, nota in notas.items():
         archivo.write(nombre + " - " + str(nota) + "\n")
 
+
+
 # Añadir contenido
 
 nuevas_notas = {
@@ -25,3 +27,5 @@ nuevas_notas = {
 with open("frases_famosas.txt", "a") as archivo:
     for nombre, nota in nuevas_notas.items():
         archivo.write(nombre + " - " + str(nota) + "\n")
+
+print(nuevas_notas)
