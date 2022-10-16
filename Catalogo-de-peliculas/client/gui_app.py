@@ -7,9 +7,9 @@ sys.path.append("C:/Users/YO/Desktop/Ingenieria-de-Software/Catalogo-de-pelicula
 
 from sre_parse import State
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from pelicula_dao import crear_tabla, borrar_tabla
-from pelicula_dao import Pelicula, guardar, listar, editar
+from pelicula_dao import Pelicula, guardar, listar, editar, eliminar
 
 #Aquí se crea la barra de menú horizontal
 def barra_menu(root):
@@ -100,6 +100,7 @@ class Frame(tk.Frame):
 
 
     def deshabilitar_campos(self):
+        self.id_pelicula = None
         self.mi_nombre.set('')
         self.mi_duracion.set('')
         self.mi_genero.set('')
@@ -159,7 +160,7 @@ class Frame(tk.Frame):
         self.boton_editar.grid(row = 5, column = 0, padx = 10, pady = 10)
         
         # Botón Eliminar
-        self.boton_eliminar = tk.Button(self, text='Eliminar')
+        self.boton_eliminar = tk.Button(self, text='Eliminar', command = self.eliminar_datos)
         self.boton_eliminar.config(width=20, font=('Arial', 12, 'bold'), fg = '#DAD5D6', bg = '#BD152E', cursor = 'hand2', activebackground = '#E15370')
         self.boton_eliminar.grid(row = 5, column = 1, padx = 10, pady = 10)
         
@@ -183,5 +184,17 @@ class Frame(tk.Frame):
             self.entry_genero.insert(0, self.genero_pelicula)
         except:
             titulo = 'Edicion de datos'
+            mensaje = 'No ha seleccionado ningún registro'
+            messagebox.showerror(titulo, mensaje)
+        
+    def eliminar_datos(self):
+        try:
+            self.id_pelicula = self.tabla.item(self.tabla.selection())['text']
+            eliminar(self.id_pelicula)
+            
+            self.tabla_peliculas()
+            self.id_pelicula = None
+        except:
+            titulo = 'Eliminar un Registro'
             mensaje = 'No ha seleccionado ningún registro'
             messagebox.showerror(titulo, mensaje)
