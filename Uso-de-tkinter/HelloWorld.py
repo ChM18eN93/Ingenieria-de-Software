@@ -2,6 +2,7 @@ import tkinter as tk
 
 app = tk.Tk()
 
-app.title('Hello World')
+lblMensaje = tk.Label(app, text='Holaaaa', fg='yellow', bg='red', pady=10)
 
+lblMensaje.pack()
 app.mainloop()

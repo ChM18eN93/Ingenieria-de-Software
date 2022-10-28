@@ -1,4 +1,5 @@
 import aspose.words as aw
+documento = input('Ingrese el nombre del documento con extensión pdf: ')
 
-doc = aw.Document("TP Implementacion de Red Wireless-ORIGINAL.pdf")
-doc.save("Output.doc")
+doc = aw.Document(documento)
+doc.save("Output.docx")

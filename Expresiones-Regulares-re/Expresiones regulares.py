@@ -1,7 +1,7 @@
 import re; #Se importa el modulo 
 cadena = input("Ingrese la cadena: ")
 #Ingresamos una cadena 
-patron = ("w+$") 
+patron = (r"w+$") 
 #Esta es una expresión regular que 
 # nos va a permitir validar la cadena
 if (re.match(patron,cadena)):
